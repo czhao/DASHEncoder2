@@ -149,8 +149,8 @@ std::string     MPDGenerator::Segment(std::map<int, std::string> audio_files, st
 		mp4box.append("-url-template ");
 	}
 
-	mp4box.append("-segment-name ");
-	mp4box.append("media_$RepresentationID$_$Bandwidth$/%s");
+    mp4box.append("-segment-name ");
+	mp4box.append("media_%s");
 	mp4box.append(" ");
 
 	std::map<int, std::string>::const_iterator map_it = audio_files.begin();

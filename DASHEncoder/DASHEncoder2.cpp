@@ -57,13 +57,13 @@ int parse(int argc, char* argv[])
 	IEncoder::EncoderType video_encoder_type = getEncoder(opt->getValue("video-encoder"));
 	if (video_encoder_type == IEncoder::ERROR)
 	{
-		std::cout << "ERROR£¡Unsupported Video Encoder\n";
+		std::cout << "ERRORï¿½ï¿½Unsupported Video Encoder\n";
 		return -1;
 	}
 	IEncoder::EncoderType audio_encoder_type = getEncoder(opt->getValue("audio-encoder"));
 	if (audio_encoder_type == IEncoder::ERROR)
 	{
-		std::cout << "ERROR£¡Unsupported Audio Encoder\n";
+		std::cout << "ERRORï¿½ï¿½Unsupported Audio Encoder\n";
 		return -1;
 	}
 
@@ -160,13 +160,13 @@ int parse(int argc, char* argv[])
 		aac_file = ae->encode();
 		if ("-1" == aac_file)
 		{
-			std::cout << "ERROR£¡Audio Encoding \n";
+			std::cout << "ERROR-Audio Encoding \n";
 			return -1;
 		}
 		mp4file_aac = m->multiplex(aac_file);
 		if ("-1" == mp4file_aac)
 		{
-			std::cout << "ERROR£¡Audio Multiplexing \n";
+			std::cout << "ERROR-Audio Multiplexing \n";
 			return -1;
 		}
 
@@ -248,14 +248,14 @@ int parse(int argc, char* argv[])
         h264file = ve->encode();
 		if ("-1" == h264file)
 		{
-			std::cout << "ERROR£¡Video Encoding \n";
+			std::cout << "ERROR-Video Encoding \n";
 			return -1;
 		}
 
 		mp4file_h264 = m->multiplex(h264file);
 		if ("-1" == mp4file_h264)
 		{
-			std::cout << "ERROR£¡Video Multiplexing \n";
+			std::cout << "ERROR-Video Multiplexing \n";
 			return -1;
 		}
 
@@ -359,7 +359,7 @@ int parse(int argc, char* argv[])
                infile.close();
            }
            else
-               cout << "Error: Unable to open Log file!";
+               cout << "Error: Unable to Generating MPD at time Log file!";
         }
 
 */
@@ -403,7 +403,7 @@ int parse(int argc, char* argv[])
 	std::string mpdname=mpdgen->Segment(audio_files, video_files);
 	if ("-1" == mpdname)
 	{
-		std::cout << "ERROR£¡MPD Generate \n";
+		std::cout << "ERRORï¿½ï¿½MPD Generate \n";
 		return -1;
 	}
 

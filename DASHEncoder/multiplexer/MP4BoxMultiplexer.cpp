@@ -45,13 +45,20 @@ std::string     MP4BoxMultiplexer::multiplex                  (std::string in)
     return this->multiplex();
 }
 
+// trim from end
+static inline std::string &rtrim(std::string &s) {
+    s.erase(std::find_if(s.rbegin(), s.rend(), std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
+    return s;
+}
+
+
 std::string     MP4BoxMultiplexer::multiplex                  (){
 
     std::cout << "MP4Box multiplexing : " << this->input << " \n";
 
     std::string mp4box = "MP4Box ";
     mp4box.append("-add \"");
-    mp4box.append(this->input);
+    mp4box.append(rtrim(this->input));
     mp4box.append("\" \"");
     mp4box.append(this->input.substr(0,this->input.find_last_of(".")));
     mp4box.append(".mp4\"");
@@ -89,4 +96,5 @@ std::string     MP4BoxMultiplexer::multiplex                  (){
    out.append(".mp4");
    return out;
 }
+
 
